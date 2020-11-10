@@ -1,4 +1,5 @@
-# v-a-markdown-editor
+# vamEditor
+使用Vue Ace Markdown做的一个Markdown编辑器
 
 ## Project setup
 ```
