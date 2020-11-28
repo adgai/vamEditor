@@ -1,0 +1,40 @@
+@font-face {
+    font-family: 'iconfont';  /* project id 2234463 */
+    src: url('//at.alicdn.com/t/font_2234463_6jk3h4jia2l.eot');
+    src: url('//at.alicdn.com/t/font_2234463_6jk3h4jia2l.eot?#iefix') format('embedded-opentype'),
+    url('//at.alicdn.com/t/font_2234463_6jk3h4jia2l.woff2') format('woff2'),
+    url('//at.alicdn.com/t/font_2234463_6jk3h4jia2l.woff') format('woff'),
+    url('//at.alicdn.com/t/font_2234463_6jk3h4jia2l.ttf') format('truetype'),
+    url('//at.alicdn.com/t/font_2234463_6jk3h4jia2l.svg#iconfont') format('svg');
+}
+[class^="el-icon-"], [class*=" el-icon-"] {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: iconfont !important;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    vertical-align: baseline;
+    display: inline-block;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.el-icon-arrow-right:before {
+
+    content: "\fa18";
+}
+
+.el-icon-arrow-left:before {
+
+    content: "\fa17";
+}
+
+.el-icon-arrow-up:before{
+    content: "\fa19";
+}
+

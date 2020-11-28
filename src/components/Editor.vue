@@ -7,10 +7,11 @@
           <div class="left-box">
 
           </div>
-          <input maxlength="8" v-model="article.title" placeholder="请输入标题..." spellcheck="false" class="title-input title-input"/>
+          <input maxlength="20" v-model="article.title" placeholder="请输入标题..." spellcheck="false"
+                 class="title-input title-input"/>
           <div class="right-box">
 
-
+            <button  v-on:click="save">主动保存</button>
           </div>
 
         </header>
@@ -67,6 +68,17 @@ import "codemirror/addon/hint/show-hint.css";
 
 import showdown from 'showdown'
 
+// import '../js/showdown-plugins/showdown-prettify-for-wechat.js'
+// import '../js/showdown-plugins/showdown-task-list.js'
+// import '../js/showdown-plugins/showdown-section-divider.js'
+// import '../js/showdown-plugins/showdown-emoji.js'
+// import '../js/showdown-plugins/showdown-image-size.js'
+// import '../js/showdown-plugins/showdown-rich.js'
+//
+// // 语法高亮
+// import '../js/google-code-prettify/run_prettify.js'
+import showdownHighlight from "showdown-highlight"
+import 'highlight.js/styles/github.css'
 
 let CodeMirror = require("codemirror/lib/codemirror");
 require("codemirror/addon/edit/matchbrackets");
@@ -83,8 +95,9 @@ export default {
       article: {
         id: 0,
         title: '',
-        markDown: '',
-        preview: ''
+        markdownContent: '',
+        htmlContent: '',
+        tags: ''
       },
       markDown: '',
       converter1: null,
@@ -133,12 +146,14 @@ export default {
       let makeHtml = this.converter1.makeHtml(value);
       this.preview = makeHtml
       console.log(makeHtml)
-      this.article.markDown = value
-      this.article.preview = makeHtml
+      this.article.markdownContent = value
+      this.article.htmlContent = makeHtml
+
     },
     initConverter() {
       let converter2 = new showdown.Converter({
         // extensions: ['prettify', 'tasklist', 'section-divider', 'emoji', 'rich'],
+        extensions: [showdownHighlight],
         tables: true,
         simpleLineBreaks: true,
         strikethrough: true
@@ -148,7 +163,25 @@ export default {
     init() {
       this.converter1 = this.initConverter()
       console.log('转化器初始化完成')
+    },
+
+    save() {
+      this.$http
+          .post('/api/article/add', this.article)
+          .then(res => {
+            console.log(res)
+            if (this.article.id){
+              this.article.id = res
+            }
+            else {
+              console.log(res)
+            }
+          })
+    },
+    refresh() {
+
     }
+
   }
 
 }

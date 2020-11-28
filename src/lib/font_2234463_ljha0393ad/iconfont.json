@@ -1,0 +1,23 @@
+{
+  "id": "2234463",
+  "name": "editor",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "9370521",
+      "name": "xE6DE",
+      "font_class": "xEDE",
+      "unicode": "fa17",
+      "unicode_decimal": 64023
+    },
+    {
+      "icon_id": "9370529",
+      "name": "xE6E0",
+      "font_class": "xEE",
+      "unicode": "fa18",
+      "unicode_decimal": 64024
+    }
+  ]
+}

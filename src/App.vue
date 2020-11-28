@@ -1,16 +1,20 @@
 <template>
   <div id="app">
-    <Editor/>
+<!--    <Editor/>-->
+    <Admin v-show="$route.path ==='/'"/>
+    <div>
+      <router-view/>
+    </div>
   </div>
 </template>
 
 <script>
 
-import Editor from  './components/Editor.vue'
+import Admin from  './components/Admin.vue'
 export default {
   name: 'App',
   components: {
-    Editor
+    Admin
   }
 }
 </script>

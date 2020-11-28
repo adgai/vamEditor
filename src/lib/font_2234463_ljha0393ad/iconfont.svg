@@ -1,0 +1,32 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd" >
+<!--
+2013-9-30: Created.
+-->
+<svg>
+<metadata>
+Created by iconfont
+</metadata>
+<defs>
+
+<font id="iconfont" horiz-adv-x="1024" >
+  <font-face
+    font-family="iconfont"
+    font-weight="500"
+    font-stretch="normal"
+    units-per-em="1024"
+    ascent="896"
+    descent="-128"
+  />
+    <missing-glyph />
+    
+    <glyph glyph-name="xEDE" unicode="&#64023;" d="M609 747L278 406q-9-9-9-21.5t9-22.5l331-341q9-8 21-8t21 9q9 9 9 21t-9 21L339 384l312 320q9 9 9 21t-9 21q-9 9-21 9t-21-8z"  horiz-adv-x="1024" />
+
+    
+    <glyph glyph-name="xEE" unicode="&#64024;" d="M341 747q-9-10-9-22t9-21l312-320-312-320q-9-9-9-21t9-21q9-9 21-9t21 8l331 341q9 9 9 22t-9 22L383 747q-9 8-21 8t-21-8z"  horiz-adv-x="1024" />
+
+    
+
+
+  </font>
+</defs></svg>
