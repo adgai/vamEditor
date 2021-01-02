@@ -11,7 +11,7 @@
                  class="title-input title-input"/>
           <div class="right-box">
 
-            <button  v-on:click="save">主动保存</button>
+            <button v-on:click="save">主动保存</button>
           </div>
 
         </header>
@@ -107,6 +107,8 @@ export default {
   mounted() {
 
     this.init()
+    let id = this.$route.query.id
+    console.log(id)
 
     let mime = 'text/markdown'
     //let theme = 'ambiance'//设置主题，不设置的会使用默认主题
@@ -135,6 +137,24 @@ export default {
 
     editor.on('change', (rm) => this.onChange(rm))
 
+    if (id != null) {
+      this.$http
+          .get('/api/article/details?id=' + id)
+          .then(res => {
+            console.log(res)
+            // this.content = res.htmlContent
+            // this.articleTitle = res.title
+            editor.setValue(res.markdownContent)
+            this.article.id = res.id
+            this.article.title = res.title
+          })
+    }
+
+    let aa = document.getElementsByClassName("CodeMirror-vscrollbar")[0]
+    aa.addEventListener("scroll", function () {
+      let pv=document.querySelector("#app > div:nth-child(2) > div > div > div > div.main > div > div.bytemd-preview")
+      pv.scrollTop=aa.scrollTop
+    })
 
   },
   methods: {
@@ -170,12 +190,8 @@ export default {
           .post('/api/article/add', this.article)
           .then(res => {
             console.log(res)
-            if (this.article.id){
-              this.article.id = res
-            }
-            else {
-              console.log(res)
-            }
+            this.article.id = res
+
           })
     },
     refresh() {
